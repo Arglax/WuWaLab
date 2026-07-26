@@ -6,14 +6,21 @@ WuWaLab is an unofficial Wuthering Waves companion and tracker app for Android. 
 >[!CAUTION]
 >The app is still in its early development and testing phase, bugs may be prevalent.  
 
+## Disclaimer
+>[!NOTE]
+>WuWaLab is an unofficial, community-made fan project and is NOT affiliated with, endorsed by, or sponsored by Kuro Games.
+>
+>This application is provided free of charge, contains no advertisements, and is intended solely as an offline companion utility for the Wuthering Waves community.
+>
+>All trademarks, game assets, artwork, character names, logos, and other intellectual property referenced or displayed within this project are the property of their respective owners. If you are the rights holder and believe any content should be removed or credited differently, please contact me and I will promptly address the issue.
+
+
 ## Getting Started
 
 > [!IMPORTANT]
 > **Minimum Requirements:**
 > * **OS:** Android 11 or higher (minSdk 30)
 > * **Storage:** At least 50MB of free space  
-> 
-> 
 
 To get started, download the latest APK from the Releases page and install it on your device. The app includes a built-in update checker that will notify you and download future GitHub releases automatically.
 
@@ -86,9 +93,3 @@ To get started, download the latest APK from the Releases page and install it on
 If you encounter any issues, experience a bug, or have a feature request, please open an issue in this GitHub repository with a detailed description of the problem.
 
 ---
-
-## Disclaimer
->[!NOTE]
->**WuWaLab is an unofficial, community-made fan project and is NOT affiliated with, endorsed, or sponsored by Kuro Games.**
->
->All basic functions of this app are completely free to use and contain strictly zero advertisements. All game assets, titles, character names, and concepts are the property of their respective owners and are used under fair use for utility purposes.
