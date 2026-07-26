@@ -2,7 +2,8 @@
 
 ## Overview
 
-WuWaLab is an unofficial Wuthering Waves companion and tracker app for Android. Built natively using Kotlin and Jetpack Compose (Material 3), this single-module application helps you monitor your Waveplates, Astrites, Lunite Pass check-ins, and more, right from your home screen or through a convenient floating overlay.
+WuWaLab is an unofficial Wuthering Waves companion and tracker app for Android. Built natively using Kotlin and Jetpack Compose (Material 3), this single-module application helps you monitor your Waveplates, Astrites, Lunite Pass check-ins, and more, right from your home screen or through a convenient floating overlay. This application does not interact with the game client, access game files, automate gameplay, or communicate with Kuro Games' servers.
+
 >[!CAUTION]
 >The app is still in its early development and testing phase, bugs may be prevalent.  
 
