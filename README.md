@@ -11,7 +11,7 @@ WuWaLab is an unofficial Wuthering Waves companion and tracker app for Android. 
 > [!IMPORTANT]
 > **Minimum Requirements:**
 > * **OS:** Android 11 or higher (minSdk 30)
-> * **Storage:** At least 30MB of free space  
+> * **Storage:** At least 50MB of free space  
 > 
 > 
 
@@ -38,7 +38,7 @@ To get started, download the latest APK from the Releases page and install it on
 | **Lunite Pass Support** | Daily check-ins, custom reminders, and total gathered stats. |
 | **Floating Overlay** | Draggable screen bubble for quick logging over other apps. |
 | **Profile Customization** | Set IGN, Union Level, and choose from free bundled avatars. |
-| **Home Widget** | Glance widget for at-a-glance resource and event tracking. |
+| **Home Widget: WIP** | Glance widget for at-a-glance resource and event tracking. |
 | **Planners** | Dedicated Pull Planner and To-Do lists for future account planning. |
 
 ### In-Depth Feature List
@@ -69,7 +69,7 @@ To get started, download the latest APK from the Releases page and install it on
 * Choose from high-quality, built-in avatars (Default, Rover, or Beacon).
 
 
-* **Glance Widget & Background Sync:**
+* **Glance Widget & Background Sync: WIP**
 * Monitor your Waveplates, Crystals, and live event banners directly from your home screen.
 * Periodic WorkManager background refreshes keep your data up to date every 30 minutes.
 
