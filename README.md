@@ -340,3 +340,7 @@ That was a real bug, now fixed — the bubble was clamping itself against the sc
 If you hit a bug or have a feature request, please open an issue in this repository with a detailed description of what happened and what you expected.
 
 ---
+
+<details>
+  Tags for SEO Indexing: #wuwa #wuwalab #wuwa-lab #android #utility #wuwautility #wuwalabapp #wuwalabapk #wutheringwaves #wuwacompanion #astritetracker #pullplanner
+</details>
