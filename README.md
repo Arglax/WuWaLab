@@ -34,42 +34,14 @@ WuWaLab is a free, offline companion and tracker app for Wuthering Waves, built 
 * [Permissions](#permissions)
 * [Features](#features)
 * [The Two Currencies](#the-two-currencies)
-* [Adding Your Own Shop Artwork](#adding-your-own-shop-artwork)
 * [FAQ](#faq)
 * [Support](#support)
 
 ---
 
 ## Screenshots
-
-<!--
-  SCREENSHOT FORMAT
-  ------------------
-  Drop your screenshots into an "img" folder at the repo root, e.g.:
-
-    /img/dashboard.png
-    /img/astrite_tracker.png
-    /img/economic_dashboard.png
-    /img/pull_planner.png
-    /img/pull_planner_curve.png
-    /img/convene_log.png
-    /img/app_shop.png
-    /img/shop_equipped.png
-    /img/overlay_bubble.png
-    /img/widget_landscape.png
-    /img/widget_compact.png
-    /img/profile_studio.png
-    /img/planner.png
-    /img/matrix.png
-    /img/landscape_dashboard.png
-    /img/event_detail_popup.png
-
-  Then reference each one below with standard Markdown image syntax,
-  relative to the repo root (no leading slash needed on GitHub).
-  For a side-by-side row, wrap them in an HTML table - GitHub renders
-  inline HTML fine inside Markdown.
--->
-
+<details>
+  
 ### The essentials
 
 | Dashboard | Astrite Tracker | Home Widget |
@@ -101,6 +73,7 @@ WuWaLab is a free, offline companion and tracker app for Wuthering Waves, built 
 | <img src="img/overlay_bubble.jpg" width="200" alt="Floating overlay" /> | <img src="img/matrix.jpg" width="200" alt="Eisenhower Matrix" /> | <img src="img/landscape_dashboard.jpg" width="200" alt="Landscape layout" /> |
 
 ---
+</details>
 
 ## Getting Started / Installation
 
@@ -115,6 +88,7 @@ WuWaLab is a free, offline companion and tracker app for Wuthering Waves, built 
 1. Go to the [Releases](../../releases) page and download the latest `.apk` (e.g. `wuwalab_alpha-<version>.apk`).
 2. On your Android device, tap the downloaded APK to begin installation.
    * First time installing from outside the Play Store? Android will ask permission — tap **Settings** on the prompt, enable **Allow from this source**, go back, and tap the APK again.
+   * Sometimes if downloads get stuck, you have to open your default browser/google chrome and then manually click on the download.  
 3. Tap **Install**, then **Open**.
 4. Read the one-time **"How WuWaLab Works"** dialog, then tick "Don't show this again" or just tap **Got it**.
 5. Set your **IGN** and **Union Level**, and enter your current **Waveplates** and **Crystals** so the math starts from the right place.
