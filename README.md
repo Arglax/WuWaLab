@@ -5,6 +5,10 @@
 ## Overview
 
 WuWaLab is a free, offline companion and tracker app for Wuthering Waves, built natively with Kotlin and Jetpack Compose (Material 3). It watches the clock so you don't have to: Waveplate regeneration, Crystal overflow, Lunite Pass check-ins, Astrite income and spending, convene odds, and your day-to-day planning — all from your home screen, a floating bubble, or the app itself.
+
+> [!IMPORTANT]
+> WuWaLab ships as a side-loaded `.apk` — **Android only.** There is no iOS version and none is planned, since iOS doesn't allow home-screen widgets or floating overlays of the kind this app is built around.
+
 [![Discord](https://img.shields.io/badge/Discord-Join-5865F2?style=plastic&logo=discord&logoColor=white)](https://discord.gg/renjxYBEZM)
 [![Latest Release](https://img.shields.io/github/v/release/Arglax/WuWaLab?style=plastic&logo=github&logoColor=white&label=Release&color=blue)](../../releases)
 
@@ -34,6 +38,7 @@ WuWaLab is a free, offline companion and tracker app for Wuthering Waves, built 
 * [Permissions](#permissions)
 * [Features](#features)
 * [The Two Currencies](#the-two-currencies)
+* [Titles & Rarity](#titles--rarity)
 * [FAQ](#faq)
 * [Support](#support)
 
@@ -41,7 +46,7 @@ WuWaLab is a free, offline companion and tracker app for Wuthering Waves, built 
 
 ## Screenshots
 <details>
-  
+
 ### The essentials
 
 | Dashboard | Astrite Tracker | Home Widget |
@@ -79,7 +84,7 @@ WuWaLab is a free, offline companion and tracker app for Wuthering Waves, built 
 
 > [!IMPORTANT]
 > **Minimum Requirements**
-> * **OS:** Android 11 or higher (minSdk 30, targetSdk 37)
+> * **OS:** Android 11 or higher (minSdk 30, targetSdk 37) — **Android devices only**, this is a side-loaded `.apk`, not a Play Store or iOS app.
 > * **Storage:** At least 50MB of free space
 > * **Permissions:** See [Permissions](#permissions) — most are optional and only needed if you use that specific feature.
 
@@ -103,14 +108,15 @@ The app checks GitHub for new releases on its own, tells you when one exists, an
 
 ## Finding Your Way Around
 
-Everything used to sit in one long row of tabs. It's now grouped into four sections, so you tap a **group** first and only that group's pages appear beneath it. Fewer things on screen, nothing hidden.
+Everything used to sit in one long row of tabs. It's now grouped into sections, so you tap a **group** first and only that group's pages appear beneath it. Fewer things on screen, nothing hidden.
 
 | Group | What's inside | What it's for |
 | --- | --- | --- |
 | **Home** | Dashboard | Waveplates, Crystals, daily sign-in, events, at-a-glance totals. |
 | **Economy** | Astrite Tracker, Pull Planner | Everything about Astrites — earning them, and spending them on convenes. |
 | **Planning** | Matrix, To-Do | Your own goals and chores, unrelated to currency. |
-| **Extras** | Overlay, App Shop, Widget Studio, Profile Studio | The floating bubble, cosmetics you buy with Argstrites, and the two Studios. |
+| **Earn** | Daily Quiz | A once-a-day arithmetic quiz that pays out Argstrites. |
+| **Extras** | Overlay, App Shop, Redeem, Widget Studio, Profile Studio | The floating bubble, cosmetics you buy with Argstrites, promo codes, and the two Studios. |
 
 You can still swipe left and right anywhere to move between pages — the tabs and the swipe stay in sync. Both rows adapt automatically: they share the width evenly in landscape and scroll sideways like chips in portrait.
 
@@ -122,8 +128,8 @@ WuWaLab only requests permissions tied to specific optional features — nothing
 
 | Permission | Why it's needed |
 | --- | --- |
-| Internet / Network State | Fetches live event banners and checks for app updates on GitHub. |
-| Post Notifications | Powers "Notify Me" alerts (waveplates full, crystals maxed, custom thresholds, Lunite Pass reminders, event countdowns) and overlay logging confirmations. |
+| Internet / Network State | Fetches live event banners(to be implemented, currently hardcoded) and checks for app updates on GitHub. |
+| Post Notifications | Powers "Notify Me" alerts (waveplates full, crystals maxed, custom thresholds, Lunite Pass reminders, event countdowns, unclaimed Argstrite reminders) and overlay logging confirmations. |
 | Schedule Exact Alarm | Fires the daily Lunite Pass check-in reminder at the right Server Time reset. |
 | Display Over Other Apps | Required only if you enable the Floating Overlay bubble. |
 | Request Install Packages | Lets the in-app update checker install a newly downloaded APK directly. |
@@ -142,15 +148,20 @@ WuWaLab only requests permissions tied to specific optional features — nothing
 | **Astrite Tracker** | Log what you earn, see a 7-day chart, watch your running total. |
 | **Economic Dashboard** | Optional advanced view: balance line graph, full transaction logbook, earning vs spending breakdown. |
 | **Pull Planner** | Convene odds from your real pity, a "how far am I" progress card, and a permanent convene log. |
-| **App Shop** | Spend Argstrites on profile portraits and widget backgrounds. |
+| **Hidden Argstrite Bonus** | Logging anything with an optional note earns a couple of extra Argstrites — a small nudge to build the habit of writing things down. |
+| **Daily Earn Quiz** | A once-a-day, 5-question arithmetic quiz (basic ops through order-of-operations) that pays out Argstrites based on how many you get right. |
+| **Redeem Codes** | One-time promo codes for bonus Argstrites and exclusive titles. |
+| **App Shop** | Spend Argstrites on profile portraits, widget backgrounds, and titles with their own rarity tiers. |
+| **Titles** | Equip a rarity-colored title next to your name — earned via the Shop or a Redeem code. |
 | **Widget Studio** | Upload your own photo, frame it, preview it, and set it as your widget background. |
 | **Profile Studio** | Upload your own photo, frame it into a circle, and set it as your profile picture — re-framing the same photo later is free. |
 | **Lunite Pass Support** | Daily check-ins, reminders, and totals. |
 | **Floating Overlay** | Draggable bubble for quick Astrite logging (both earning and spending) over other apps, screen-size aware on rotation. |
 | **Home Widget** | Live Waveplate countdown on your home screen, with a background you can change. |
 | **Planners** | Pull Planner, To-Do list, and an Eisenhower Matrix. |
-| **Grouped Navigation** | Four tidy sections instead of one crowded tab row. |
-| **Event Detail Popups** | Tap any event banner for a full breakdown, driven entirely by a bundled/remote `events.json`. |
+| **Grouped Navigation** | Tidy sections instead of one crowded tab row. |
+| **Event Detail Popups** | Live and Ended events only, sortable by time remaining, color-coded by category, tap for a full breakdown — driven entirely by a bundled/remote `events.json`. |
+| **Full Reset** | A Settings option that wipes all local app data and restarts fresh, in case you ever want a clean slate. |
 
 <details>
 <summary><strong>Full feature list (click to expand)</strong></summary>
@@ -160,7 +171,7 @@ WuWaLab only requests permissions tied to specific optional features — nothing
 * Accurate passive regeneration: **+1 Waveplate every 6 minutes**, **+1 Crystal every 12 minutes**.
 * Respects the game's real limits — Waveplates soft-cap at 240 (with a manual override up to 2400 for overloaded states), Crystals hard-cap at 480 and can never be pushed past it.
 * Live status indicators: Depleted, Regenerating, Full, Overloaded, plus a "Frozen" state for Crystals while Waveplates haven't capped yet.
-* Manual entry cards for both, so you can correct the count any time you spend or gain in-game.
+* Manual entry cards for both, so you can correct the count any time you spend or gain in-game. Every manual update quietly earns a small Argstrite reward too — see [Hidden Argstrite Bonus](#hidden-argstrite-bonus-how-argstrites-are-earned-from-logging) below.
 
 #### Astrite Tracker — Simple mode
 
@@ -189,16 +200,28 @@ A switch at the top of the Astrite page flips between **Simple** and **Advanced*
 
 Every number on this page is the same number the Dashboard, the Profile header and the Pull Planner show. There is one source of truth, so nothing can quietly disagree.
 
-#### Pull Planner
+#### Hidden Argstrite Bonus (how Argstrites are earned from logging)
 
-* Pick a banner (Character, Weapon, Standard), type in your current pity, and flip the guarantee switch if you lost your last 50/50.
-* A **probability curve** projecting your odds pull by pull, with three markers drawn right on it:
-  * a violet **"You are here"** dot anchored to the pity you entered,
-  * an amber **budget line** showing how far your current Astrites actually reach,
-  * a red **hard pity line** at the pull where a 5-star becomes certain.
-* **"Road to the 5-star" card** — the plain-English answer to *how far am I?* It gives you a progress bar, the exact number of Astrites and pulls still needed to guarantee the character even with the worst possible luck, roughly how many days that is at your recent earning pace, and the pull number where your odds cross 50/50.
-* **Convene Log** — every spend you record becomes a permanent row: when it happened, which banner, how many pulls, what it cost, and whether you were on a guarantee. It's a proper record, not just a running total, and the same rows appear in the Economic Dashboard's logbook.
-* Logging a spend updates your balance everywhere in the same instant. If a spend would overdraw you, the button won't let it happen.
+Every time you write an Astrite log entry, a spend/earn entry, a Pull Planner convene, a To-Do item, or a manual Waveplate update, you quietly earn **+1 Argstrite** — and **+2** instead if you also filled in the optional note/description field on that entry.
+
+The first time this ever happens, and the first time the note-bonus ever happens, WuWaLab shows a one-time popup explaining the mechanic ("Great! You found a hidden method to earn Argstrites"). After that, it stops interrupting you — the Argstrites keep coming every time, just silently, so logging stays fast.
+
+**Why it works this way:** the reward isn't really about the Argstrites. It's a small, low-stakes incentive to build the habit of actually writing down *what* something was for, not just *how much*. Consistent notes are what make a log worth anything later — for spotting patterns, for catching where your Astrites actually went, or just for your own peace of mind. A logbook you can trust is a genuinely useful accountability habit, in-game or out, and the bonus is there to nudge you toward keeping one.
+
+#### Daily Earn Quiz
+
+* Found under the **Earn** group.
+* 5 randomly generated arithmetic questions each day — plain operations up through order-of-operations (PEMDAS) chains, deliberately nothing beyond that (no exponents, no roots).
+* One attempt per day, resetting at the same Server Time (4:00 AM Manila) boundary as everything else daily in the app.
+* Payout scales with how many you get right: 1 correct = 5 Argstrites, 2 = 10, 3 = 20, 4 = 30, all 5 = 50.
+* Come back after reset for another shot — your questions and score for the day are saved, so leaving and reopening the app mid-attempt won't reroll new questions on you.
+
+#### Redeem Codes
+
+* Found under **Extras → Redeem**.
+* A simple textbox: type a code, tap Redeem.
+* Every code works **exactly once per device** — reusing one just tells you it's already been claimed.
+* Codes can grant Argstrites outright or unlock an exclusive title you can't get any other way.
 
 #### App Shop
 
@@ -206,10 +229,11 @@ Every number on this page is the same number the Dashboard, the Profile header a
 * Spends **Argstrites only** — the app's own currency. Your real Astrite convene budget is never touched.
 * **Profile pictures — 5 Argstrites each.** Equip one and it replaces the portrait in your header.
 * **Widget backgrounds — 10 Argstrites each.** Equip one and the artwork behind your home-screen widget changes immediately.
+* **Titles — individually priced**, each with its own rarity tier and color. See [Titles & Rarity](#titles--rarity).
 * **Sort** by price (low to high or high to low), by name, or unowned-first. **Filter** by category.
 * Owned items switch from *Buy* to *Equip*, and equipping one shows a green check on its tile. You can unequip at any time to go back to the free default.
 * You can't overspend. If an item costs more than you hold, the button is disabled and tells you exactly how many Argstrites you're short. A second check runs inside the purchase itself, so even a double-tap can't push you negative.
-* An in-app way to **earn** Argstrites through gameplay is planned — for now, the Daily Sign-In card is your income.
+* Argstrites aren't only from the Daily Sign-In anymore — see [The Two Currencies](#the-two-currencies) for every way to earn them.
 
 #### Lunite Pass Management
 
@@ -221,24 +245,25 @@ Every number on this page is the same number the Dashboard, the Profile header a
 
 * Push notifications when Waveplates hit full, Crystals hit the 480 cap, or a custom Waveplate threshold you choose is reached.
 * Event reminders at 3 days and 1 day before an event window closes.
+* A gentle nudge if you leave the app while you still have unclaimed Argstrites sitting in your pending balance, so a good logging streak never quietly goes uncollected.
 * Debounced, so you're notified once per threshold crossing rather than repeatedly.
-* Every notification now carries a small category header ("WuWaLab · Waveplates", "WuWaLab · Overlay", "WuWaLab · Events", etc.) above the title, so it's obvious at a glance what triggered it before you even open it — this applies across the whole app, but is most noticeable on Astrite logging notifications from the Overlay bubble ("Astrites Logged" / "Spend Logged"), which now clearly separate the two.
+* Every notification carries a small category header ("WuWaLab · Waveplates", "WuWaLab · Overlay", "WuWaLab · Events", "WuWaLab · Argstrites", etc.) above the title, so it's obvious at a glance what triggered it before you even open it.
 
 #### Floating Overlay Bubble
 
-* A bubble that hovers over other apps, including the game itself.
+* A bubble that hovers over other apps, including the game itself — now shown as the WuWaLab logo, so it's instantly recognizable among other floating bubbles.
 * Tap it for a quick logging popup without opening the full app, with two modes:
   * **Add** — bumps today's earned Astrite total, exactly like before.
   * **Log Spend** — writes a real SPEND entry through the same ledger the Pull Planner and Shop use, so it shows up in the Economic Dashboard logbook under "Overlay Quick Spend" rather than just silently subtracting a number.
 * Both modes share the same quick-amount chips (+10 / +60 / +100 / +160) and both append their own kind of entry.
 * Press and drag to move it; drag to the bottom-centre (it glows red with a bin icon) to dismiss it.
 * A confirmation notification appears after logging (or closing without logging), then the popup closes itself.
-* **Fixed:** the bubble used to get "stuck" clamped to an old screen size after rotating the device, because its on-screen bounds were only ever read once, when the bubble was first created. The overlay now re-reads the current screen size and rebuilds itself on every orientation/configuration change, so it can always reach the whole screen, in either orientation.
 * An **Add Widget** shortcut pins the home-screen widget in one tap on Android 8+.
 
 #### Profile
 
 * Set your In-Game Name and Union Level, and pick from the free bundled avatars (Default, Rover, Beacon), any portrait you've bought in the App Shop, or a custom photo from the Profile Studio.
+* Equip a **title** from the Shop or a Redeem code, and it shows right under your name, colored by its rarity.
 * Tap the header for a read-only stats card explaining both currencies.
 * Two buttons at the end of the header: the **edit pencil** on the left, the **shop cart** on the right.
 * Layout adapts to orientation — portrait keeps your name on its own row so a long IGN never misaligns the stats, landscape lays everything out in a single line with full labels.
@@ -261,6 +286,7 @@ Every number on this page is the same number the Dashboard, the Profile header a
 * **Re-framing is free.** If you just want to zoom, reposition, or otherwise re-touch the *same* photo you already applied, re-applying it costs nothing — you're only ever charged again for a genuinely different upload. The confirmation dialog and button both make it explicit whether a given apply will be free or charged before you tap it.
 * Reverting to a bundled/shop avatar is free.
 * Your photo never leaves your phone — same private, on-device storage approach as the Widget Studio.
+* Uploading a new photo now shows up everywhere immediately — the profile header and profile summary always reflect whatever you most recently applied.
 
 #### Home Screen Widget
 
@@ -268,12 +294,11 @@ Every number on this page is the same number the Dashboard, the Profile header a
 * Background artwork that respects whatever widget skin you've equipped in the shop, falling back to the bundled art.
 * Full landscape size shows the art on the right and darkens the left where the numbers sit; small and square sizes use an even scrim so every value stays readable.
 * **Tapping the widget opens a quick chooser** rather than dumping you on whatever page you last used — jump straight to the Dashboard, the Pull Planner, or your To-Do list, or set an alarm in your phone's own clock app.
-* The dimming is a real gradient now: fully dark across the left 40% where the numbers sit, ramping away between 40% and 60%, and completely clear from 60% rightwards so your artwork is untouched on that side.
 * Refreshes every 30 minutes in the background, and instantly whenever you change a value in-app.
 
 #### Planning Tools
 
-* **To-Do list** with reminders.
+* **To-Do list** with reminders — creating a new task also quietly earns a small Argstrite reward, same as any other log.
 * **Eisenhower Matrix** for sorting tasks by urgency and importance.
 * Both live under the Planning group, away from the currency pages.
 
@@ -283,9 +308,17 @@ Every number on this page is the same number the Dashboard, the Profile header a
 
 #### Event Tracking
 
-* Upcoming / Live / Ended tabs pulled from a GitHub-hosted events cache, refreshed in the background.
-* **Tap any event banner** to open a detail popup: its category (Farming, Convene, Combat, Leisure, or none for a plain featured event), its full countdown/expiry, and a bullet-point breakdown of what's actually in it (drop rates, featured characters, claimable rewards, farmable Astrite totals, and so on).
+* **Live** and **Ended** tabs pulled from a GitHub-hosted events cache, refreshed in the background.
+* **Sort toggle** flips the list between soonest-ending-first and latest-ending-first.
+* Each banner's border is color-coded by category at a glance: green for Leisure, blue for Farming, red for Combat, amber for everything else (Convene, Featured, Permanent).
+* **Tap any event banner** to open a detail popup: its category, its full countdown/expiry, and a bullet-point breakdown of what's actually in it (drop rates, featured characters, claimable rewards, farmable Astrite totals, and so on).
 * Everything shown — name, dates, category, banner art, and the detail bullets — is read straight out of `assets/events.json` (or its GitHub-hosted counterpart), so adding or editing an event is a JSON edit, not a code change. See that file for the exact shape.
+
+#### Full Reset
+
+* Found in **Settings → Danger Zone**.
+* Wipes every piece of local data WuWaLab has ever saved — balances, logs, purchases, titles, redeemed codes, custom photos, everything — and restarts the app as if freshly installed.
+* Gated behind a two-step confirmation, since it can't be undone. Functionally identical to clearing the app's storage from Android's own Settings, just reachable without leaving the app.
 
 #### Update Checker
 
@@ -302,21 +335,62 @@ They're easy to mix up, so here's the short version:
 | | **Astrites** | **Argstrites** |
 | --- | --- | --- |
 | What is it | The game's real convene currency | WuWaLab's own in-app currency |
-| Where it comes from | You log what you earn in-game | +10 a day from the Daily Sign-In card |
-| What it buys | Convenes, tracked in the Pull Planner | Profile pictures and widget backgrounds in the App Shop, and custom photo uploads in the Widget Studio and Profile Studio |
+| Where it comes from | You log what you earn in-game | Daily Sign-In, the Daily Earn Quiz, Redeem codes, and small bonuses for logging with notes (see below) |
+| What it buys | Convenes, tracked in the Pull Planner | Profile pictures, widget backgrounds, and titles in the App Shop, plus custom photo uploads in the Widget Studio and Profile Studio |
 | Can it go negative | No — the balance floors at zero | No — purchases are blocked before that can happen |
 
 The two pools never touch each other. Buying a portrait can't shrink your pull budget, and convening can't cost you a widget skin.
 
+**Every way to earn Argstrites:**
+
+* **Daily Sign-In** — a flat +10, once per game day.
+* **Daily Earn Quiz** — 5–50, once per game day, based on how many arithmetic questions you get right.
+* **Redeem codes** — fixed amounts, each code once per device.
+* **Logging with a note** — a small +1 (or +2 with a note) for every Astrite log, spend/earn log, Pull Planner convene, To-Do item, and manual Waveplate update. See [Hidden Argstrite Bonus](#hidden-argstrite-bonus-how-argstrites-are-earned-from-logging) for why this exists — it's less about the currency and more about training the habit of consistent, note-worthy logging.
+
+---
+
+## Titles & Rarity
+
+Titles are cosmetic, shown right under your name, and come in five rarity tiers:
+
+| Rarity | Color |
+| --- | --- |
+| Common | Gray |
+| Uncommon | Green |
+| Rare | Purple |
+| Epic | Gold |
+| Legendary | Pulsating red glow |
+
+Titles are unlocked two ways: buying one in the **App Shop** (each has its own individual price, separate from the flat per-item pricing of portraits and backgrounds), or unlocking an exclusive one through a **Redeem code**. Once owned, equip it from the Shop and it'll show on your Profile header and profile summary everywhere.
+
 ---
 
 ## FAQ
-
+<details>
 **Is this against the Terms of Service?**  
 No. WuWaLab never reads game memory or files, never logs into your account, and never automates anything. It's a notepad with good maths.
 
 **Why do I have to type my values in manually?**  
 Because there is no sanctioned way to read live values out of the game. Manual entry is the honest, safe option.
+
+**Is there an iOS version?**  
+No, and there are no plans for one. WuWaLab ships as a side-loaded Android `.apk` — the floating overlay and home-screen widget it's built around aren't things iOS allows third-party apps to do.
+
+**How do I actually earn Argstrites?**  
+Four ways: the Daily Sign-In (+10/day), the Daily Earn Quiz under the Earn tab (5–50/day depending on your score), one-time Redeem codes, and a small +1/+2 bonus every time you log something — an Astrite entry, a spend, a Pull Planner convene, a To-Do item, or a manual Waveplate update. See the next question for why that last one exists.
+
+**Why does logging give me Argstrites — is that just a gimmick?**  
+Partly, but there's a real reason behind it: the bonus is bigger when you fill in the optional note/description field, not just the amount. That's deliberate. A log entry that just says "+500" tells you nothing a week later; a log entry that says "+500, event login" is one you can actually learn from. The Argstrite bonus is a small nudge to build that habit — writing down *what* something was for, not just *how much* — because that's what makes a logbook genuinely useful for spotting patterns, tracking where things go, or just holding yourself accountable. It's meant to train the same instinct that makes any accounting or tracking habit actually work, in-game or out.
+
+**Do I have to claim my Argstrites right away?**  
+No, they sit in a pending balance until you claim them. If you leave the app with some still unclaimed, WuWaLab will send a quick reminder notification so a good logging streak doesn't quietly go uncollected.
+
+**Can I redeem the same code twice?**  
+No — every code works exactly once per device. Redeeming it again just tells you it's already been claimed.
+
+**What happens if I use Full Reset?**  
+Everything gets wiped — balances, logs, purchases, titles, redeemed codes, custom photos, settings, all of it — and the app restarts as if freshly installed. It's gated behind a two-step confirmation because it can't be undone.
 
 **My weekly Astrites show a negative number. Is that a bug?**  
 No — that's the net figure for the week, and if you convened more than you collected, it's supposed to be negative. Your *lifetime earned* total and your *daily average* never go negative.
@@ -329,9 +403,7 @@ Deleting a row removes it from the log only — it doesn't refund the spend. Use
 
 **I already applied a photo in Profile Studio. Why wasn't I charged again when I re-applied it?**  
 Because it's the same photo — only re-positioned or re-zoomed. Profile Studio only charges Argstrites the first time a given photo is applied; re-framing and re-applying that same photo afterwards is free. Uploading a genuinely different photo will cost Argstrites again.
-
-**Why did my overlay bubble seem stuck in one corner of the screen after I rotated my phone?**  
-That was a real bug, now fixed — the bubble was clamping itself against the screen size from before the rotation. It now re-measures the screen and rebuilds itself every time your device's orientation changes.
+</details>
 
 ---
 
@@ -341,6 +413,8 @@ If you hit a bug or have a feature request, please open an issue in this reposit
 
 ---
 
+##   Tags for SEO Indexing:
+
 <details>
-  Tags for SEO Indexing: #wuwa #wuwalab #wuwa-lab #android #utility #wuwautility #wuwalabapp #wuwalabapk #wutheringwaves #wuwacompanion #astritetracker #pullplanner
+ #wuwa #wuwalab #wuwa-lab #android #utility #wuwautility #wuwalabapp #wuwalabapk #wutheringwaves #wuwacompanion #astritetracker #pullplanner
 </details>
