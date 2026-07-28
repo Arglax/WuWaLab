@@ -1,6 +1,7 @@
 # WuWa Lab
 
 > An unofficial Wuthering Waves companion for Android — track your Waveplates, plan your pulls, and see exactly where every Astrite goes.
+> This will be open-sourced once fully functional and stable. 
 
 ## Overview
 
