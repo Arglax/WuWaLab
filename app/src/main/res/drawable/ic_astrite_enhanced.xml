@@ -1,0 +1,19 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <!-- Soft violet halo ring, marking this as the "enhanced"/premium currency icon -->
+    <path
+        android:fillColor="#8B6CF0"
+        android:fillAlpha="0.20"
+        android:pathData="M24,4 A20,20 0 1,1 23.99,4 Z" />
+    <!-- Four-point radiant star, same silhouette family as ic_astrite but with an
+         added inner diamond core to read as visually distinct at a glance -->
+    <path
+        android:fillColor="#C9B6FF"
+        android:pathData="M24,6 C24.8,15.4 28.6,19.2 38,20 C28.6,20.8 24.8,24.6 24,34 C23.2,24.6 19.4,20.8 10,20 C19.4,19.2 23.2,15.4 24,6 Z" />
+    <path
+        android:fillColor="#F3F5FF"
+        android:pathData="M24,16 L28,24 L24,32 L20,24 Z" />
+</vector>

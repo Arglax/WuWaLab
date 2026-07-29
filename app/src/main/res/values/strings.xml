@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">WuWaLab</string>
+    <string name="widget_label">Wuwa Dashboard</string>
+    <string name="matrix_widget_label">Eisenhower Matrix</string>
+</resources>

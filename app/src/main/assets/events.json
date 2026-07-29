@@ -1,0 +1,72 @@
+[
+  {
+    "id": "bountiful_crescendo",
+    "name": "Bountiful Crescendo",
+    "startEpochMs": 1784690853119,
+    "endEpochMs": 1785353253119,
+    "bannerImage": "event_bountiful_crescendo_bg",
+    "eventType": "farming",
+    "details": [
+      "Double drop rate for Simulation Challenge (EXP Materials)",
+      "Double drop rate for Forgery Challenge (Weapon/Skill Materials)"
+    ]
+  },
+  {
+    "id": "ascendant_aces",
+    "name": "Ascendant Aces",
+    "startEpochMs": 1784690853119,
+    "endEpochMs": 1785374853119,
+    "bannerImage": "event_ascendant_aces_bg",
+    "eventType": "convene",
+    "details": [
+      "Featured 5-Star Convene: Yangyang (Spectro), Lupa, Lumie",
+      "4-Star Rate Ups: Danjin, Chixia, Aalto"
+    ]
+  },
+  {
+    "id": "recaptured_action_highlights",
+    "name": "Recaptured: Action Highlights",
+    "startEpochMs": 1784690853119,
+    "endEpochMs": 1785958053119,
+    "bannerImage": "event_recaptured_action_highlights_bg",
+    "eventType": "leisure",
+    "details": [
+      "~400 Astrites farmable",
+      "Expected completion time: 10-30 minutes"
+    ]
+  },
+  {
+    "id": "lament_recon_tacet_crisis",
+    "name": "Lament Recon: Tacet Crisis",
+    "startEpochMs": 1784690853119,
+    "endEpochMs": 1787110053119,
+    "bannerImage": "event_lament_recon_tacet_crisis_bg",
+    "eventType": "combat",
+    "details": [
+      "~1200 Astrites farmable"
+    ]
+  },
+  {
+    "id": "gifts_of_aftertune",
+    "name": "Gifts of Aftertune",
+    "startEpochMs": 1784690853119,
+    "endEpochMs": 1787081253119,
+    "bannerImage": "event_gifts_of_aftertune_bg",
+    "eventType": "featured",
+    "details": [
+      "5 Lustrous Tides claimable",
+      "5 Radiant Tides claimable"
+    ]
+  },
+  {
+    "id": "tactical_hologram_simulation",
+    "name": "Tactical Hologram: Simulation",
+    "startEpochMs": 1784690853119,
+    "endEpochMs": 1787081253119,
+    "bannerImage": "event_tactical_hologram_simulation_bg",
+    "eventType": "permanent",
+    "details": [
+      "Permanent event - stays available long-term, not a limited-time feature"
+    ]
+  }
+]
