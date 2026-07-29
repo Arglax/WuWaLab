@@ -4,7 +4,7 @@
 
 ## Overview
 
-WuWaLab is a free, offline companion and tracker app for Wuthering Waves, built natively with Kotlin and Jetpack Compose (Material 3). It watches the clock so you don't have to: Waveplate regeneration, Crystal overflow, Lunite Pass check-ins, Astrite income and spending, convene odds, and your day-to-day planning — all from your home screen, a floating bubble, or the app itself.
+WuWaLab is a free, open-source, offline companion and tracker app for Wuthering Waves, built natively with Kotlin and Jetpack Compose (Material 3). It watches the clock so you don't have to: Waveplate regeneration, Crystal overflow, Lunite Pass check-ins, Astrite income and spending, convene odds, and your day-to-day planning — all from your home screen, a floating bubble, or the app itself.
 
 > [!IMPORTANT]
 > WuWaLab ships as a side-loaded `.apk` — **Android only.** There is no iOS version and none is planned, since iOS doesn't allow home-screen widgets or floating overlays of the kind this app is built around.
