@@ -24,8 +24,8 @@ android {
         applicationId = "io.github.arglax.wuwalab"
         minSdk = 30
         targetSdk = 37
-        versionCode = 8
-        versionName = "v1.0"
+        versionCode = 9
+        versionName = "v1.1"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
