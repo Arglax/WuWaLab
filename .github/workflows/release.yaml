@@ -1,0 +1,114 @@
+name: Release
+
+# Manual trigger only — go to Actions tab → Release → Run workflow
+on:
+  workflow_dispatch:
+    inputs:
+      notes:
+        description: "What's new in this release? (bullet points, one per line)"
+        required: false
+        default: "- Bug fixes and improvements"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+
+      - name: Bump versionCode and versionName
+        id: bump
+        run: |
+          FILE="app/build.gradle.kts"
+
+          OLD_CODE=$(grep -oP 'versionCode\s*=\s*\K[0-9]+' "$FILE")
+          OLD_NAME=$(grep -oP 'versionName\s*=\s*"v\K[0-9]+\.[0-9]+' "$FILE")
+
+          NEW_CODE=$((OLD_CODE + 1))
+
+          MAJOR=$(echo "$OLD_NAME" | cut -d. -f1)
+          MINOR=$(echo "$OLD_NAME" | cut -d. -f2)
+          NEW_MINOR=$((MINOR + 1))
+          NEW_NAME="v${MAJOR}.${NEW_MINOR}"
+
+          sed -i "s/versionCode = ${OLD_CODE}/versionCode = ${NEW_CODE}/" "$FILE"
+          sed -i "s/versionName = \"v${MAJOR}.${MINOR}[^\"]*\"/versionName = \"${NEW_NAME}\"/" "$FILE"
+
+          echo "old_code=$OLD_CODE" >> "$GITHUB_OUTPUT"
+          echo "new_code=$NEW_CODE" >> "$GITHUB_OUTPUT"
+          echo "new_name=$NEW_NAME" >> "$GITHUB_OUTPUT"
+
+      - name: Commit version bump
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add app/build.gradle.kts
+          git commit -m "chore: bump version to ${{ steps.bump.outputs.new_name }} (${{ steps.bump.outputs.new_code }})"
+          git push
+
+      - name: Decode signing keystore
+        run: |
+          echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 -d > keystore.jks
+
+      - name: Build signed release APK
+        env:
+          KEYSTORE_FILE: ${{ github.workspace }}/keystore.jks
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+        run: ./gradlew assembleRelease
+
+      - name: Locate built APK
+        id: apk
+        run: |
+          APK_PATH=$(find app/build/outputs/apk/release -name "*.apk" | head -n 1)
+          NEW_APK_NAME="wuwalab_${{ steps.bump.outputs.new_name }}.apk"
+          cp "$APK_PATH" "$NEW_APK_NAME"
+          echo "apk_name=$NEW_APK_NAME" >> "$GITHUB_OUTPUT"
+
+      - name: Build release notes
+        id: notes
+        run: |
+          cat <<EOF > release_notes.md
+          ## WuWaLab ${{ steps.bump.outputs.new_name }}
+
+          ### What's New
+          ${{ github.event.inputs.notes }}
+
+          ### Minimum Requirements
+          - **OS:** Android 11 or higher (minSdk 30, targetSdk 37)
+          - **Platform:** Android only — no iOS version exists or is planned
+          - **Storage:** At least 50MB of free space
+          - **Permissions:** Most are optional and only needed for specific features (Overlay, Notifications, Install Packages) — see the README for the full breakdown
+
+          ### Installation
+          1. Download the \`.apk\` below.
+          2. Allow installs from this source if prompted.
+          3. Tap the APK to install, then open.
+
+          This is an unofficial, community-made companion app and is not affiliated with Kuro Games.
+          EOF
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.bump.outputs.new_name }}
+          name: WuWaLab ${{ steps.bump.outputs.new_name }}
+          body_path: release_notes.md
+          files: ${{ steps.apk.outputs.apk_name }}
